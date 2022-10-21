@@ -28,7 +28,6 @@ public class SensorService {
 	public Sensor findByTitle(String title) {  
 			  return sensorRepository.findByTitle(title).orElseThrow(SensorNotFoundException::new);
 	  }
-	 
 	  
 
 }

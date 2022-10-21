@@ -62,4 +62,8 @@ public class MeasurementService {
 		measurement.setAddedAt(Date.valueOf(LocalDate.now()));
 	}
 	
+	public List<Measurement> getAllMeasurementBySensorTitle(String sensorTitle){
+		return measurementRepository.findBySensor(sensorService.findByTitle(sensorTitle));
+	}
+	
 }

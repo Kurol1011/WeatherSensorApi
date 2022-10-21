@@ -71,6 +71,11 @@ public class MeasurementsController {
 	public long showRainyDaysCount(@PathVariable("sensorTitle") String sensorTitle){
 		return measurementService.getRainyDaysCountSensor(sensorTitle);
 	}
+	
+	@GetMapping("/measurements/{sensorTitle}")
+	public List<MeasurementDTO> showAllMeasurementBySensorTitle(@PathVariable("sensorTitle") String sensorTitle){
+		return measurementService.getAllMeasurementBySensorTitle(sensorTitle).stream().map(this::convertToMeasurementDTO).collect(Collectors.toList());
+	}
 		
 	@GetMapping("/measurements/rainyDaysCount")
 	public long showRainyDaysCount(){
